@@ -1,0 +1,24 @@
+#include <stdio.h>
+ 
+int main() {
+ 
+    int N, X, rpt, interval = 0;
+    
+    scanf("%d", &N);
+    
+    rpt = N;
+    
+    while(rpt != 0)
+    {
+      	scanf("%d", &X);
+
+      	if((10 <= X) && (X <= 20))
+      		  interval++;
+
+  	    rpt--;
+    }
+    
+    printf("%d in\n%d out\n", interval, (N - interval));
+
+    return 0;
+}
