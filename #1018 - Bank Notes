@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+void equacoes(int value);
+
+int main(){
+    int value;
+    
+    scanf("%d", &value);
+    printf("%d\n", value);
+    
+    equacoes(value);
+
+    return 0;
+}
+
+void equacoes(int a){
+    int cd100, cd50, cd20, cd10, cd5, cd2, cd1;
+    
+    cd100 = a / 100;
+    a = a - cd100 * 100;
+    
+    cd50 = a / 50;
+    a = a - cd50 * 50;
+    
+    cd20 = a / 20;
+    a = a - cd20 * 20;
+    
+    cd10 = a / 10;
+    a = a - cd10 * 10;
+    
+    cd5 = a / 5;
+    a = a - cd5 * 5;
+    
+    cd2 = a / 2;
+    a = a - cd2 * 2;
+    
+    cd1 = a / 1;
+    
+    printf("%d nota(s) de R$ 100,00\n%d nota(s) de R$ 50,00\n%d nota(s) de R$ 20,00\n%d nota(s) de R$ 10,00\n%d nota(s) de R$ 5,00\n%d nota(s) de R$ 2,00\n%d nota(s) de R$ 1,00\n", cd100, cd50, cd20, cd10, cd5, cd2, cd1);
+}
