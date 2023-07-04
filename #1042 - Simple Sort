@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+void ascending(int a, int b, int c);
+
+int main() {
+    int a, b, c;
+    
+    scanf("%d%d%d", &a, &b, &c);
+ 
+	  ascending(a, b, c);
+	
+	  printf("%d\n%d\n%d\n", a, b, c);
+	
+    return 0;
+}
+
+void ascending(int a, int b, int c){
+	int troca;
+	
+	if(b > a)
+	{
+		troca = a;
+		a = b;
+		b = troca;
+	}
+	
+	if(c > b)
+	{
+		troca = b;
+		b = c;
+		c = troca;
+	}
+    
+	if(b > a)
+	{
+		troca = a;
+		a = b; 
+		b = troca;
+	}
+    printf("%d\n%d\n%d\n\n", c, b, a);
+}
