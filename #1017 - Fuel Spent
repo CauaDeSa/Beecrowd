@@ -1,0 +1,16 @@
+#include <stdio.h>
+ 
+int main() {
+ 
+    int hours, avrgspeed;
+    float total;
+ 
+    scanf("%d%d", &hours, &avrgspeed);
+ 
+    total = hours * avrgspeed;
+    total = total / 12;
+        
+    printf("%.3f\n", total);
+
+    return 0;
+}
