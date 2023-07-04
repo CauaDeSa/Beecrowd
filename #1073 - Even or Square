@@ -1,0 +1,16 @@
+#include <stdio.h>
+ 
+int main() {
+ 
+	int x, rpt = 1;
+ 
+  scanf("%d", &x);
+    
+  while(rpt++ != x){
+    
+      if((rpt % 2) == 0)
+          printf("%d^2 = %d\n", rpt, rpt * rpt);
+  }
+
+  return 0;
+}
