@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+void imprime_vetores(int vetor[]);
+int troca_vetor(int vetor[]);
+int ler_vetor(int vetor[]);
+
+int main(){
+    int vetor[20];
+    
+    ler_vetor(vetor);
+    
+    troca_vetor(vetor);
+
+    imprime_vetores(vetor);
+
+    return 0;
+}
+
+int ler_vetor(int vetor[]){
+    int i;
+
+    for (i = 0; i < 20; i++)
+    {
+        scanf("%d", &vetor[i]);
+    }
+    
+    return 0;
+}
+
+int troca_vetor(int vetor[]){
+    int i, j;
+    int troca;
+
+    for (i = 0, j = 19; i < 10; i++, j--)
+    {
+        troca = vetor[i];
+        vetor[i] = vetor[j];
+        vetor[j] = troca;
+    }
+    
+    return 0;
+}
+
+void imprime_vetores(int vetor[]){
+    int i;
+
+    for (i = 0; i < 20; i++)
+    {
+        printf("N[%d] = %d\n", i, vetor[i]);
+    }
+}
