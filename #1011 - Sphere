@@ -1,0 +1,17 @@
+#include <stdio.h>
+ 
+int main() {
+ 
+    double R, pi, total;
+    
+    scanf("%lf", &R);
+    
+    pi = 3.14159;
+    total = 4.0 / 3;
+    total = total * pi;
+    total = total * (R * R * R);
+    
+    printf("VOLUME = %.3lf\n", total);
+ 
+    return 0;
+}
