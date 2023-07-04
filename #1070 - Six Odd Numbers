@@ -1,0 +1,22 @@
+#include <stdio.h>
+ 
+int main() {
+ 
+    int rpt = 6, value;
+    
+    scanf("%d", &value);
+    
+    while(rpt != 0){
+    	
+    	if((value % 2) != 0)
+    	{
+      		printf("%d\n", value);
+      		rpt--;
+    	}
+    	
+    value++;
+
+    }
+ 
+    return 0;
+}
