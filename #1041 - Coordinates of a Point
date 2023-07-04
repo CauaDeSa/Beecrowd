@@ -1,0 +1,77 @@
+#include <stdio.h> 
+
+int quadrante(float x);
+void quadrantes(char rx, char ry);
+
+int main(){
+    
+    float x, y; 
+    char rx, ry;
+    
+    scanf("%f%f", &x, &y);
+    
+    rx = quadrante(x);
+    ry = quadrante(y);
+    
+    quadrantes(rx, ry);
+
+    return 0;
+}
+
+int quadrante(float x){
+    if(x > 0)
+        return 1;
+    
+    else 
+    {
+        if(x == 0)
+            return 2;
+        
+        else 
+            return 3;
+    }
+}
+
+void quadrantes(char rx, char ry){
+    if(rx != 2)
+    {
+        if(rx == 1)
+        {
+          if(ry == 1)  
+              printf("Q1\n");
+          
+          else
+          {
+              if(ry == 2)
+                  printf("Eixo X\n");
+              
+              else
+                  printf("Q4\n");
+          }
+        }
+        
+        else
+        {
+            if(ry == 1)  
+              printf("Q2\n");
+          
+          else
+          {
+              if(ry == 2)
+                  printf("Eixo X\n");
+              
+              else
+                  printf("Q3\n");
+          }
+        }
+    }
+    
+    else
+    {
+        if(ry == 2)
+            printf("Origem\n");
+        
+        else
+            printf("Eixo Y\n");
+    }
+}
