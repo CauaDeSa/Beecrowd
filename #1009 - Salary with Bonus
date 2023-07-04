@@ -7,7 +7,7 @@ int main() {
     
     scanf("%s", &name);
     scanf("%lf%lf", &sal, &total);
-    
+   
     aument = total * 0.15;
     sal = aument + sal;
     
