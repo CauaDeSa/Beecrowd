@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int equseconds(int a);
+int equminutes(int a);
+int equhours(int a);
+
+int main() {
+ 
+    int n;
+ 
+    scanf("%d", &n);
+    
+    printf("%d:%d:%d\n", equhours(n), equminutes(n), equseconds(n));
+ 
+    return 0;
+}
+
+int equseconds(int a){
+    return a % 60;
+}
+
+int equminutes(int a){
+    int variavel;
+    
+    variavel = a / 60;
+    return variavel % 60;
+}
+
+int equhours(int a){
+    int variavel;
+    
+    variavel = a / 60;
+    
+    return variavel / 60;
+}
