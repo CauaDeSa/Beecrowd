@@ -9,7 +9,7 @@ int main() {
     A = A * B;
     C = C * D;
     A = A - C;
-    
+   
     printf("DIFERENCA = %d\n", A);
 
     return 0;
