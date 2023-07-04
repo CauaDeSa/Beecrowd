@@ -1,0 +1,29 @@
+#include <stdio.h>
+ 
+int main() {
+ 
+    int n1, n2, change;
+    
+    scanf("%d%d", &n1, &n2);
+    
+    if(n1 < n2){
+      	change = n1;
+      	n1 = n2;
+      	n2 = change;
+    }
+    
+    change = 0;
+    
+    if(n1 != n2)
+    {
+    		while((n2++) != (n1 - 1))
+        {  	
+    	    	if((n2 % 2) != 0)
+    	    		  change += n2;
+    	  }
+    }
+    
+  	printf("%d\n", change);
+  	
+    return 0;
+}
