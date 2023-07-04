@@ -7,7 +7,7 @@ int main() {
     
     scanf("%d%d%f", &a, &b, &e);
     scanf("%d%d%f", &c, &d, &f);
-    
+   
     e = b * e;
     f = d * f;
     f = e + f;
