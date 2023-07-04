@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int validator(int a, int b);
+
+int main(){
+    int a, b;
+    
+    scanf("%d%d", &a, &b);
+    
+    if (validator(a, b))
+        printf("Sao Multiplos\n");
+    
+    else
+        printf("Nao sao Multiplos\n");
+    
+    return 0;
+}
+
+int validator(int a, int b){
+    if((a % b) == 0)
+        return 1;
+    
+    else
+    {
+        if((b % a) == 0)
+        	return 1;
+        
+        else 
+        	return 0;
+    }
+}
