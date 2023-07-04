@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int maiorABC(int a, int b, int c);
+ 
+int main() {
+    int a, b, c, total;
+    
+    scanf("%d%d%d", &a, &b, &c);
+    
+    total = maiorABC(a, b, c);
+ 
+    printf("%d eh o maior\n", total);
+
+    return 0;
+}
+
+int maiorABC(int a, int b, int c){
+    int maior1, maior2;
+    
+    maior1 = (a + b + abs (a - b)) / 2;
+    maior2 = (maior1 + c + abs(maior1 - c)) / 2;
+    
+    return maior2;
+}
