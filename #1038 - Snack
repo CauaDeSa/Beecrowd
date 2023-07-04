@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+float produto(int X);
+float preco(float X, int Y);
+
+int main() {
+	int X, Y;
+	
+	scanf("%d%d", &X, &Y);
+
+	printf("Total: R$ %.2f\n", (preco(produto(X), Y)));
+    
+  return 0;
+}
+
+float produto(int X){
+	
+	switch(X){
+
+		case 1:
+		return 4;
+		break;
+		
+		case 2:
+		return 4.5;
+		break;
+		
+		case 3:
+		return 5;
+		break;
+		
+		case 4:
+		return 2;
+		break;
+		
+		case 5:
+		return 1.5;
+		break;
+		
+		default:
+		return 0;
+	}
+}
+
+float preco(float X, int Y){
+	return X * Y;
+}
