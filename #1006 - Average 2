@@ -20,6 +20,6 @@ double weights(double A, double B, double C){
     double total;
     
     total = ((A * 2) + (B * 3) + (C * 5)) / 10;
-    
+  
     return total;
 }
