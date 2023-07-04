@@ -8,7 +8,7 @@ int main() {
     scanf("%d%f%f", &num, &hours, &perhour);
     
     perhour = perhour * hours;
-    
+   
     printf("NUMBER = %d\n", num);
     printf("SALARY = U$ %.2f\n", perhour);
  
