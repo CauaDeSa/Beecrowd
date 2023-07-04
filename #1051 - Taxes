@@ -1,0 +1,82 @@
+#include <stdio.h>
+
+float tax1(float x);
+float tax2(float x);
+float tax3(float x);
+
+int main(){
+    
+    float salary, taxa = 0;
+    
+    scanf("%f", &salary);
+    
+    if(salary <= 2000)
+        printf("Isento\n");
+
+    else
+    {
+        if(salary <= 3000)
+        {
+            salary = salary - 2000;
+            taxa = tax1(salary);
+            
+            printf("R$ %.2f\n", taxa);
+        }
+        
+        else
+        {
+            if(salary <= 4500)
+            {
+                salary = salary - 2000;
+                
+                if(salary <= 1000)
+                {
+                	taxa = tax1(salary);
+                	salary = salary;
+                
+                	printf("R$ %.2f\n", taxa);
+                }
+                
+                else
+                {
+                	taxa = tax1(1000);
+                	salary = salary - 1000;
+                	taxa = taxa + tax2(salary);
+                
+                	printf("R$ %.2f\n", taxa);
+                }
+                
+            }
+            
+            else
+            {
+                if(salary > 4500)
+                {
+                    salary = salary - 2000;
+                	  taxa = tax1(1000);
+                	  salary = salary - 1000;
+                	  taxa = taxa + tax2(1500);
+                	  salary = salary - 1500;
+                	  taxa = taxa + tax3(salary);
+                    
+                    printf("R$ %.2f\n", taxa);
+                }
+            }
+        }
+    }
+
+    return 0;
+}
+
+float tax1(float x){
+    return x * 8 / 100;
+}
+
+float tax2(float x){
+	return x * 18 / 100;
+    
+}
+
+float tax3(float x){
+	return x * 28 / 100;
+}
