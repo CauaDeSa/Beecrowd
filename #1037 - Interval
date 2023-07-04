@@ -1,0 +1,67 @@
+#include <stdio.h>
+
+int intervalo1(float a);
+int intervalo2(float a);
+int intervalo3(float a);
+int intervalo4(float a);
+
+int main() {
+ 
+    float a;
+    
+    scanf("%f", &a);
+    
+    if(intervalo1(a))
+        printf("Intervalo [0,25]\n");
+    else
+    {
+    	if(intervalo2(a))
+          printf("Intervalo (25,50]\n");
+    	else
+    	{
+    		if(intervalo3(a))
+            printf("Intervalo (50,75]\n");}
+    		else
+    		{
+    			if(intervalo4(a))
+              printf("Intervalo (75,100]\n");}
+    			else
+              printf("Fora de intervalo\n");
+    		}
+    	}
+    }
+ 
+    return 0;
+}
+
+int intervalo1(float a){
+	if((a >= 0) && (a <= 25))
+    return 1;
+
+	else
+    return 0;
+}
+
+int intervalo2(float a){
+	if((a > 25) && (a <= 50))
+    return 1;
+
+	else
+    return 0;
+}
+
+int intervalo3(float a){
+	if((a > 50) && (a <= 75))
+    return 1;
+
+	else
+    return 0;
+}
+
+int intervalo4(float a){
+	if((a > 75) && (a <= 100))
+    return 1;
+
+	else
+    return 0;
+}
