@@ -1,18 +1,34 @@
 #include <stdio.h>
 
-int main(){
+int eqdays(int a);
+int eqmonths(int a);
+int eqyears(int a);
+
+int main() {
+ 
+    int days;
+ 
+    scanf("%d", &days);
     
-    int anos, meses, dias, dias2;
-
-    scanf("%d", &dias2);
-
-    anos = dias2 / 365;
-    meses = (dias2 % 365) / 30;
-    dias = (dias2 % 365) % 30;
-
-    printf("%d ano(s)\n", anos);
-    printf("%d mes(es)\n", meses);
-    printf("%d dia(s)\n", dias);
-
+    printf("%d ano(s)\n%d mes(es)\n%d dia(s)\n", eqyears(days), eqmonths(days), eqdays(days));
+ 
     return 0;
+}
+
+int eqdays(int a){
+    int variavel;
+    
+    variavel = a % 365;
+    return variavel % 30;
+}
+
+int eqmonths(int a){
+    int variavel;
+    
+    variavel = a % 365;
+    return variavel / 30;
+}
+
+int eqyears(int a){
+    return a / 365;
 }
