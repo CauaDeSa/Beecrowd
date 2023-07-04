@@ -1,0 +1,23 @@
+#include <stdio.h>
+ 
+int main() {
+ 
+	int times = 6, positive = 0;
+	float n;
+	
+	times = 6;
+ 
+  while(times != 0){
+
+      scanf("%f", &n);
+      
+      if(n > 0)
+          positive++;
+      
+      times--;
+  }
+	
+	printf("%d valores positivos\n", positive);
+
+    return 0;
+}
