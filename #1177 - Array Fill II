@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+void print_vetor(int vetor[]);
+int adicionar_vetor(int vetor[], int x);
+
+int main(){
+ 
+    int x, vetor[1000];
+
+    scanf("%d", &x);
+
+    adicionar_vetor(vetor, x);
+
+    print_vetor(vetor);
+
+    return 0;
+}
+
+int adicionar_vetor(int vetor[], int x){
+    int j;
+    
+    for (int i = j = 0; j < 1000; i++, j++)
+    {
+        if (i == x)
+            i = 0;
+
+        vetor[j] = i;
+    }
+
+    return 0;
+}
+
+void print_vetor(int vetor[]){
+    for (int i = 0; i < 1000; i++)
+    {
+        printf("N[%d] = %d\n", i, vetor[i]);
+    }
+}
