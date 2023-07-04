@@ -1,0 +1,68 @@
+#include <stdio.h>
+
+double equacoes(double value);
+void equationscoin(double a);
+
+int main(){
+    
+    double value, a;
+    
+    scanf("%lf", &value);
+
+    printf("NOTAS:\n");
+
+    a = equacoes(value);
+
+    equationscoin(a);
+
+    return 0;
+}
+
+double equacoes(double a){
+    int cd100, cd50, cd20, cd10, cd5, cd2;
+    
+    cd100 = a / 100;
+    a = a - cd100 * 100;
+    
+    cd50 = a / 50;
+    a = a - cd50 * 50;
+    
+    cd20 = a / 20;
+    a = a - cd20 * 20;
+    
+    cd10 = a / 10;
+    a = a - cd10 * 10;
+    
+    cd5 = a / 5;
+    a = a - cd5 * 5;
+    
+    cd2 = a / 2;
+    a = a - cd2 * 2;
+
+    printf("%d nota(s) de R$ 100.00\n%d nota(s) de R$ 50.00\n%d nota(s) de R$ 20.00\n%d nota(s) de R$ 10.00\n%d nota(s) de R$ 5.00\n%d nota(s) de R$ 2.00\n", cd100, cd50, cd20, cd10, cd5, cd2);
+
+    return a;
+}
+
+void equationscoin(double a){
+    int md1, md50, md25, md10, md5, md100;
+
+    md100 = a / 1.00;
+    a = a - md100;
+    
+    md50 = a / 0.50;
+    a = a - md50 * 0.50;
+    
+    md25 = a / 0.25;
+    a = a - md25 * 0.25;
+    
+    md10 = a / 0.10;
+    a = a - md10 * 0.10;
+    
+    md5 = a / 0.05;
+    a = a - md5 * 0.05;
+    
+    md1 = a / 0.01;
+    
+    printf("MOEDAS:\n%d moeda(s) de R$ 1.00\n%d moeda(s) de R$ 0.50\n%d moeda(s) de R$ 0.25\n%d moeda(s) de R$ 0.10\n%d moeda(s) de R$ 0.05\n%d moeda(s) de R$ 0.01\n",md100, md50, md25, md10, md5, md1);
+}
