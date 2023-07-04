@@ -1,0 +1,66 @@
+#include <stdio.h>
+
+void media2(float media, float e);
+int avaliacao(float x);
+float media(float a, float b, float c, float d);
+float peso(float x, int y);
+
+int main() {
+    float a, b, c, d, media1, exam2;
+    
+    scanf("%f%f%f%f", &a, &b, &c, &d);
+    
+    media1 = media(peso(a, 2), peso(b, 3), peso(c, 4), peso(d, 1));
+    
+    printf("Media: %.1f\n", media1);
+ 
+	if(avaliacao(media1))
+	{
+		scanf("%f", &exam2);
+		printf("Nota do exame: %.1f\n", exam2);
+		media2(media1, exam2);
+	}
+	else
+    return 0;
+}
+
+float peso(float x, int y){
+	return x * y;
+}
+
+float media(float a, float b, float c, float d){
+	return (a + b + c + d) / 10;
+}
+
+int avaliacao(float x){
+	if(x >= 7)
+	{
+		printf("Aluno aprovado.\n");
+		return 0;
+	}
+	else
+	{
+		if(x < 5)
+		{
+			printf("Aluno reprovado.\n");
+			return 0;
+		}
+		else
+		{
+			printf("Aluno em exame.\n");
+			return 1;
+		}
+	}
+}
+
+void media2(float media, float e){
+	float media2;
+	
+	media2 = (media + e) / 2;
+	
+	if(media2 >= 5)
+    printf("Aluno aprovado.\nMedia final: %.1f\n", media2);
+
+	else
+    printf("Aluno reprovado.\nMedia final: %.1f\n", media2);
+}
