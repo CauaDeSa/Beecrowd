@@ -3,9 +3,8 @@
 int main() {
  
     double A, r, pi;
- 
     pi = 3.14159;
-    
+
     scanf("%lf", &r);
     
     A = pi * (r * r);
