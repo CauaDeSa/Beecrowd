@@ -1,0 +1,33 @@
+#include <stdio.h>
+ 
+void escrever_vetores(float vetor[]);
+int ler_vetor(float vetor[]);
+
+int main(){
+    float vetor[100];
+
+    ler_vetor(vetor);
+
+    escrever_vetores(vetor);
+ 
+    return 0;
+}
+
+int ler_vetor(float vetor[]){
+    int i;
+    
+    for (i = 0; i < 100; i++)
+        scanf("%f", &vetor[i]);
+    
+    return 0;
+}
+
+void escrever_vetores(float vetor[]){
+    int i;
+
+    for (i = 0; i < 100; i++)
+    {
+        if (vetor[i] <= 10)
+            printf("A[%d] = %.1f\n", i, vetor[i]);
+    }
+}
