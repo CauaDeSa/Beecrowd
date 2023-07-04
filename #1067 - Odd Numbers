@@ -1,0 +1,19 @@
+#include <stdio.h>
+ 
+int main() {
+ 
+    int rpt, count = 0;
+    
+    scanf("%d", &rpt);
+    
+    while(count != (rpt + 1)){
+    	
+    	if((count % 2) != 0)
+    		  printf("%d\n", count);
+    	
+    count++;
+
+    }
+ 
+    return 0;
+}
