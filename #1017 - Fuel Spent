@@ -1,16 +1,26 @@
 #include <stdio.h>
- 
+
+float distequation(int hours, int speed);
+float litequation(float distance);
 int main() {
  
-    int hours, avrgspeed;
-    float total;
+    int hours, speed;
+    float distance, liters;
+    
+    scanf("%d%d", &hours, &speed);
+    
+    distance = distequation(hours, speed);
+    liters = litequation(distance);
+    
+    printf("%.3f\n", liters);
  
-    scanf("%d%d", &hours, &avrgspeed);
- 
-    total = hours * avrgspeed;
-    total = total / 12;
-        
-    printf("%.3f\n", total);
-
     return 0;
+}
+
+float distequation(int a, int b){
+    return a * b;
+}
+
+float litequation(float a){
+    return a / 12;
 }
