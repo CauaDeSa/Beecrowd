@@ -1,0 +1,67 @@
+#include <stdio.h>
+#define TRUE 1
+#define FALSE 0
+
+struct data{
+    int landscape;
+    int height[100];
+};
+
+struct data getData(){
+    int i;
+
+    struct data measures;
+
+    scanf("%d", &measures.landscape);
+    
+    for (i = 0; i < measures.landscape; i++)
+    {
+        scanf("%d", &measures.height[i]);
+    }
+
+    return measures;
+};
+
+int check(struct data measures);
+
+int main(){
+    
+    struct data measures;
+    
+    measures = getData(measures);
+
+    printf("%d\n", check(measures));
+
+    return 0;
+}
+
+int check(struct data measures){
+    int check, i;
+    
+    if (measures.landscape > 2)
+    {
+        i = 2;
+
+        while (i < measures.landscape)
+        {
+            if ((measures.height[i - 2] > measures.height[i - 1] && measures.height[i - 1] < measures.height[i]) || (measures.height[i - 2] < measures.height[i - 1] && measures.height[i - 1] > measures.height[i]))
+                check = TRUE;
+
+            else
+            {
+                check = FALSE;
+                i = measures.landscape;
+            }
+
+            i++;
+        }
+    }
+        
+    else
+    {
+        if (measures.height[0] != measures.height[1])
+            check = TRUE;
+    }
+
+    return check;
+}
