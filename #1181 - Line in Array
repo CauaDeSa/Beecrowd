@@ -1,0 +1,54 @@
+#include <stdio.h>
+ 
+void read_values(double M[][12]);
+float values_sum(double M[][12], int n);
+
+int main(){ 
+    int n;
+    char operation;
+    double M[12][12], sum;
+    
+    scanf("%d", &n);
+    scanf(" %c", &operation);
+
+    read_values(M);
+
+    sum = values_sum(M, n);
+
+    if (operation == 'S')
+        printf("%.1lf\n", sum);
+    
+    else
+    {
+        if (operation == 'M')
+            printf("%.1lf\n", sum / 12);
+    }
+    
+    return 0;
+}
+
+float values_sum(double M[][12], int n){
+    int column;
+    float sum;
+
+    for (column = 0, sum = 0; column < 12; column++)
+    {
+        sum += M[n][column];
+    }    
+
+    return sum;
+}
+
+void read_values(double M[][12]){
+    int line, column;
+    double value;
+
+    for (line = 0; line < 6; line++)
+    {
+        for (column = 0; column < 12; column++)
+        {
+            scanf("%lf", &value);
+            M[line][column] = value;
+        }   
+    }
+}
