@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+    char post[600];
+
+    gets(post);
+
+    printf((strlen(post) > 140) ? "MUTE\n" : "TWEET\n");
+
+    return 0;
+}
