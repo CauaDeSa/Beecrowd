@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main(){
+    int height, length, i, maior, valor, result;
+
+    scanf("%d%d", &height, &length);
+    
+    do
+    {
+        scanf("%d", &maior);
+        result = 0;
+
+        for (i = 1; i < length; i++)
+        {
+            scanf("%d", &valor);
+
+            if (maior < valor)
+                result += valor - maior;
+            
+            maior = valor;   
+        }
+
+        result += height - maior;
+
+        printf("%d\n", result);
+
+        scanf("%d%d", &height, &length);
+
+    } while (height != 0 || length != 0);
+    
+    return 0;
+}
