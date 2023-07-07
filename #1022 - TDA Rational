@@ -1,0 +1,160 @@
+#include <stdio.h>
+ 
+struct data
+{
+    int first_value[2], second_value[2], result[2];
+    char operation;
+};
+
+void getData(struct data values[], int rpt);
+void define(struct data values[], int rpt);
+
+void sum(struct data values[], int i);
+void subtraction(struct data values[], int i);
+void division(struct data values[], int i);
+void multiplication(struct data values[], int i);
+
+void simplify(struct data values[], int i);
+
+int main() {
+    int rpt;
+
+    scanf("%d", &rpt);    
+
+    struct data values[rpt];
+
+    getData(values, rpt);
+
+    define(values, rpt);
+    
+    return 0;
+}
+
+void getData(struct data values[], int rpt){
+    int i;
+    char bar;
+
+    for (i = 0; i < rpt; i++)
+    {
+        scanf("%d", &values[i].first_value[0]);
+        scanf(" %c", &bar);
+        scanf("%d", &values[i].first_value[1]);
+
+        scanf(" %c", &values[i].operation);
+
+        scanf("%d", &values[i].second_value[0]);
+        scanf(" %c", &bar);
+        scanf("%d", &values[i].second_value[1]);
+    }
+}
+
+void define(struct data values[], int rpt){
+    int i;
+
+    for (i = 0; i < rpt; i++)
+    {
+        switch (values[i].operation)
+        {
+        case '+':
+
+            sum(values, i);
+
+            simplify(values, i);
+            
+            break;
+
+        case '-':
+
+            subtraction(values, i);
+
+            simplify(values, i);
+
+            break;
+
+        case '*':
+
+            multiplication(values, i);
+
+            simplify(values, i);
+
+            break;
+
+        case '/':
+
+            division(values, i);
+
+            simplify(values, i);
+
+            break;
+        }
+    }
+}
+
+void sum(struct data values[], int i){
+
+    values[i].result[0] = (values[i].first_value[0] * values[i].second_value[1]) + (values[i].first_value[1] * values[i].second_value[0]);
+
+    values[i].result[1] = values[i].first_value[1] * values[i].second_value[1];
+
+    printf("%d/%d =", values[i].result[0], values[i].result[1]);
+}
+
+void subtraction(struct data values[], int i){
+
+    values[i].result[0] = (values[i].first_value[0] * values[i].second_value[1]) - (values[i].first_value[1] * values[i].second_value[0]);
+
+    values[i].result[1] = values[i].first_value[1] * values[i].second_value[1];
+
+    printf("%d/%d =", values[i].result[0], values[i].result[1]);
+}
+
+void division(struct data values[], int i){
+
+    values[i].result[0] = values[i].first_value[0] * values[i].second_value[1];
+
+    values[i].result[1] = values[i].second_value[0] * values[i].first_value[1];
+
+    printf("%d/%d =", values[i].result[0], values[i].result[1]);
+}
+
+void multiplication(struct data values[], int i){
+
+    values[i].result[0] = values[i].first_value[0] * values[i].second_value[0];
+
+    values[i].result[1] = values[i].first_value[1] * values[i].second_value[1];
+
+    printf("%d/%d =", values[i].result[0], values[i].result[1]);
+}
+
+void simplify(struct data values[], int i){
+    int bigger, minor, change, divisor = 0;
+
+    bigger = values[i].result[0];
+    minor = values[i].result[1];
+
+    if (minor > bigger)
+    {
+        change = minor;
+        minor = bigger;
+        bigger = change;
+    }
+    
+    else
+        change = minor;
+
+    if (minor != 1)
+        while (change != 1 && divisor == 0)
+        {
+            if (minor % change == 0){
+                if (bigger % change == 0)
+                {
+                    printf(" %d/%d\n", (values[i].result[0] / change), values[i].result[1] / change);
+                    divisor++;
+                }
+
+            change--;
+        }
+    
+    if (minor == 1 || divisor == 0)
+        printf(" %d/%d\n", values[i].result[0], values[i].result[1]);
+}
