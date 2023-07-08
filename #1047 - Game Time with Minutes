@@ -1,0 +1,38 @@
+#include <stdio.h>
+#define DAYBALANCE 1440
+
+void getData(int minutes[]);
+void showResult(int time[]);
+
+int main() {
+
+    int time[2];
+
+    getData(time);
+    
+    showResult(time);
+
+    return 0;
+}
+
+void getData(int time[]){
+    int initialHour, initialMinute, finalHour, finalMinute, diff;
+
+    scanf("%d%d%d%d", &initialHour, &initialMinute, &finalHour, &finalMinute);
+
+    finalMinute += DAYBALANCE;
+
+    initialMinute = (initialHour * 60) + initialMinute;
+    finalMinute = (finalHour * 60) + finalMinute;
+    diff = (finalMinute - initialMinute) % DAYBALANCE;
+
+    time[0] = diff / 60;
+    time[1] = diff % 60;
+
+    if(time[0] == 0 && time[1] == 0)
+        time[0] = 24;
+}
+
+void showResult(int time[]){
+    printf("O JOGO DUROU %d HORA(S) E %d MINUTO(S)\n", time[0], time[1]);
+}
