@@ -1,0 +1,53 @@
+#include <stdio.h>
+
+struct data
+{
+    float salary;
+    float adjustment;
+    int percentage;
+};
+
+struct data getValues(){
+    struct data person;
+
+    scanf("%f", &person.salary);
+
+    if(person.salary <= 400)
+        person.percentage = 15;
+    
+    else
+        if(person.salary <= 800)
+            person.percentage = 12;
+
+        else
+            if(person.salary <= 1200)
+                person.percentage = 10;
+            
+            else
+                if(person.salary <= 2000)
+                    person.percentage = 7;
+                
+                else
+                    person.percentage = 4;
+    
+    person.adjustment = (person.salary * person.percentage) / 100;
+    person.salary = person.salary + person.adjustment;
+
+    return person;
+}
+ 
+void showResult(struct data person);
+
+int main(){
+    struct data person = getValues();
+
+    showResult(person);
+
+    return 0;
+}
+
+void showResult(struct data person){
+    printf("Novo salario: %.2f\n", person.salary);
+    printf("Reajuste ganho: %.2f\n", person.adjustment);
+    printf("Em percentual: %d %%\n", person.percentage);
+}
