@@ -1,0 +1,15 @@
+#include <stdio.h>
+ 
+int main(){
+    int n, i, count = 0;
+    
+    scanf("%d", &n);
+    
+    for (i = 0; i < n; i++)
+    {
+        printf("%d %d %d PUM\n", count + 1, count + 2, count + 3);
+        count += 4;
+    }
+    
+    return 0;
+}
