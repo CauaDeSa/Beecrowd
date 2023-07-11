@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+void count(int gasType[], int command);
+void showResult(int gasType[]);
+
+int main(){
+    int command, gasType[3] = {0, 0, 0};
+
+    while (command != 4)
+    {
+        do
+        {
+            scanf("%d", &command);
+
+        } while (command < 1 || command > 4);
+        
+        count(gasType, command);
+    }
+    
+    showResult(gasType);  
+
+    return 0;
+}
+
+void count(int gasType[], int command){
+    switch (command)
+        {
+        case 1:
+            gasType[0]++;
+            break;
+        
+        case 2:
+            gasType[1]++;
+            break;
+        
+        case 3: 
+            gasType[2]++;
+        
+        default:
+            break;
+        }
+}
+
+void showResult(int gasType[]){
+    printf("MUITO OBRIGADO\n");
+    printf("Alcool: %d\n", gasType[0]);
+    printf("Gasolina: %d\n", gasType[1]);
+    printf("Diesel: %d\n", gasType[2]);
+}
