@@ -1,0 +1,44 @@
+#include <stdio.h>
+#define MAXSIZE 5
+ 
+void getData(int numbers[], int conditions[]);
+void showResult(int conditions[]);
+
+int main(){
+    int numbers[5], conditions[4] = {0, 0, 0, 0};
+
+    getData(numbers, conditions);
+    
+    showResult(conditions);
+
+    return 0;
+}
+
+void getData(int numbers[], int conditions[]){
+    int i;
+
+    for (i = 0; i < MAXSIZE; i++)
+    {
+        scanf("%d", &numbers[i]);
+
+        if(numbers[i] % 2 == 0)
+            conditions[0]++;
+        
+        else
+            conditions[1]++;
+
+        if(numbers[i] > 0)
+            conditions[2]++;
+
+        if(numbers[i] < 0)
+            conditions[3]++;
+    }
+}
+
+void showResult(int conditions[]){
+    
+    printf("%d valor(es) par(es)\n", conditions[0]);
+    printf("%d valor(es) impar(es)\n", conditions[1]);
+    printf("%d valor(es) positivo(s)\n", conditions[2]);
+    printf("%d valor(es) negativo(s)\n", conditions[3]);  
+}
