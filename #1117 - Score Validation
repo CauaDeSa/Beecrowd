@@ -1,0 +1,36 @@
+#include <stdio.h>
+ 
+int validation(float score);
+
+int main(){
+    float score, average;
+    int valid;
+
+    average = valid = 0;
+
+    do
+    {
+        scanf("%f", &score);
+
+        if(validation(score))
+        {
+            average += score;
+            valid++;
+        }
+
+    } while (valid < 2);
+    
+    printf("media = %.2f\n", average / 2);
+
+    return 0;
+}
+
+int validation(float score){
+    if (score >= 0 && score <= 10)
+        return 1;
+
+    else{
+        printf("nota invalida\n");
+        return 0;
+    }
+}
