@@ -1,0 +1,21 @@
+#include <stdio.h>
+ 
+int main(){
+    int age, count = 0;
+    float average = 0;
+    
+    scanf("%d", &age);
+
+    do
+    {
+        average += age;
+        count++;
+        
+        scanf("%d", &age);
+
+    } while (age > -1);
+    
+    printf("%.2f\n", average / count);
+
+    return 0;
+}
