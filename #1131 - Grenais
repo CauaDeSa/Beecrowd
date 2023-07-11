@@ -1,0 +1,83 @@
+#include <stdio.h>
+#define MAXSIZE 3
+
+struct grenal
+{
+    int matchesQuantity;
+    int eachResults[MAXSIZE];
+};
+
+struct grenal getData(){
+    struct grenal data;
+    int command, i = 0;
+    int interScore, gremScore;
+
+    for (i = 0; i < MAXSIZE; i++)
+    {
+        data.eachResults[i] = 0;
+    }
+
+    data.matchesQuantity = 0;
+    
+    do
+    {
+        scanf("%d%d", &interScore, &gremScore);
+
+        if(interScore == gremScore)
+            data.eachResults[2]++;
+
+        else
+        {
+            if(interScore > gremScore)
+                data.eachResults[0]++;
+
+            else
+            {
+                if(interScore < gremScore)
+                    data.eachResults[1]++;
+            }
+        }
+
+        data.matchesQuantity++;
+
+        printf("Novo grenal (1-sim 2-nao)\n");
+        
+        scanf("%d", &command);
+    } while (command == 1);
+
+    return data;
+}
+
+void showResult(struct grenal data);
+
+int main(){
+    struct grenal data;
+
+    data = getData();
+    
+    showResult(data);
+
+    return 0;
+}
+
+void showResult(struct grenal data){
+
+    printf("%d grenais\n", data.matchesQuantity);
+    printf("Inter:%d\n", data.eachResults[0]);
+    printf("Gremio:%d\n", data.eachResults[1]);
+    printf("Empates:%d\n", data.eachResults[2]);
+
+    if(data.eachResults[0] == data.eachResults[1])
+        printf("Não houve vencedor\n");
+    else
+    {
+        if(data.eachResults[0] > data.eachResults[1])
+            printf("Inter venceu mais\n");
+
+        else
+        {
+            if(data.eachResults[0] < data.eachResults[1])
+                printf("Gremio venceu mais\n");
+        }
+    }
+}
