@@ -1,0 +1,20 @@
+#include <stdio.h>
+#define MAXSIZE 100
+
+int main(){
+    double array[MAXSIZE], previous;
+
+    scanf("%lf", &array[0]);
+
+    printf("N[0] = %.4lf\n", array[0]);
+
+    previous = array[0];
+
+    for (int i = 1; i < MAXSIZE; i++)
+    {
+        previous = previous / 2;
+        printf("N[%d] = %.4lf\n", i, previous);
+    }
+    
+    return 0;
+}
