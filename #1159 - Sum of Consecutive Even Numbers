@@ -1,0 +1,35 @@
+#include <stdio.h>
+ 
+int sum(int count);
+
+int main(){
+    int start;
+
+    scanf("%d", &start);
+
+    do
+    {   
+        printf("%d\n", sum(start));   
+
+        scanf("%d", &start);
+    } while (start != 0);
+
+    return 0;
+}
+
+int sum(int count){
+    int sum = 0, quantity = 5;
+
+    while (quantity > 0)
+    {
+        if (count % 2 == 0)
+        {
+            sum += count;
+            quantity--;
+        }
+        
+        count++;
+    }
+
+    return sum;   
+}
