@@ -1,0 +1,20 @@
+#include <stdio.h>
+#define MAXSIZE 10
+
+int main() {
+    int array[MAXSIZE], previous;
+
+    scanf("%d", &array[0]);
+
+    printf("X[0] = %d\n", array[0]);
+
+    previous = array[0];
+
+    for (int i = 1; i < MAXSIZE; i++)
+    {
+        previous = previous * 2;
+        printf("X[%d] = %d\n", i, previous);
+    }
+    
+    return 0;
+}
