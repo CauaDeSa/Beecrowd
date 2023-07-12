@@ -1,0 +1,24 @@
+#include <stdio.h>
+#define MAXSIZE 10
+
+int main() {
+    int array[MAXSIZE], value;
+
+    for (int i = 0; i < MAXSIZE; i++)
+    {
+        scanf("%d", &value);
+
+        if(value > 0)
+            array[i] = value;
+
+        else
+            array[i] = 1;
+    }
+    
+    for (int i = 0; i < MAXSIZE; i++)
+    {
+        printf("X[%d] = %d\n", i, array[i]);
+    }
+    
+    return 0;
+}
