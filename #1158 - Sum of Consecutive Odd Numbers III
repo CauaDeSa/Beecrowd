@@ -1,0 +1,37 @@
+#include <stdio.h>
+ 
+int sum(int count, int quantity);
+
+int main(){
+    int testCases, quantity, start;
+
+    scanf("%d", &testCases);
+
+    while (testCases > 0)
+    {
+        scanf("%d%d", &start, &quantity);
+
+        printf("%d\n", sum(start, quantity));        
+
+        testCases--;
+    }
+ 
+    return 0;
+}
+
+int sum(int count, int quantity){
+    int sum = 0;
+
+    while (quantity > 0)
+    {
+        if (count % 2 != 0)
+        {
+            sum += count;
+            quantity--;
+        }
+        
+        count++;
+    }
+
+    return sum;   
+}
