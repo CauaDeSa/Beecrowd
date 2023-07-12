@@ -1,0 +1,28 @@
+#include <stdio.h>
+ 
+int main() {
+    int quantity = 1, value, testCases, i;
+    
+    scanf("%d", &testCases);
+
+    while (testCases--)
+    {
+        scanf("%d", &value);
+
+        for (i = 1; i < (value / 2) + 1; i++)
+        {
+            if(value % i == 0)
+                quantity += i;
+        }
+
+        if(quantity == 2)
+            printf("%d eh primo\n", value);
+        
+        else
+            printf("%d nao eh primo\n", value);
+
+        quantity = 1;
+    }    
+
+    return 0;
+}
