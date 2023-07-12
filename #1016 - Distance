@@ -1,0 +1,20 @@
+#include <stdio.h>
+ 
+int equation(int a);
+
+int main() {
+ 
+    int distance, minutes;
+    
+    scanf("%d", &distance);
+    
+    minutes = equation(distance);
+ 
+    printf("%d minutos\n", minutes);
+    return 0;
+}
+
+int equation(int a){
+    
+    return a * 2;
+}
