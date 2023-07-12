@@ -1,0 +1,38 @@
+#include <stdio.h>
+ 
+double corresponding(int value);
+
+int main(){
+    int testCases, value;
+    
+    scanf("%d", &testCases);
+
+    while (testCases--)
+    {
+        scanf("%d", &value);
+
+        printf("Fib(%d) = %.0lf\n", value, corresponding(value));
+    }
+
+    return 0;
+}
+
+double corresponding(int value){
+    if(value == 0)
+        return 0;
+
+    if(value == 1 || value == 2)
+        return 1;
+    
+    int i;
+    double value1 = 1, value2 = 1, bigger;
+
+    for (i = 2; i < value; i++)
+    {
+        bigger = value1 + value2;
+        value1 = value2;
+        value2 = bigger;
+    }
+
+    return value2;
+}
