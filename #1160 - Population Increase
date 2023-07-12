@@ -1,0 +1,64 @@
+#include <stdio.h>
+
+struct data
+{
+    int popA;
+    float growA;
+    int popB;
+    float growB;
+};
+
+struct data getData(){
+    struct data city;
+
+    scanf("%d", &city.popA);
+    scanf("%d", &city.popB);
+    scanf("%f", &city.growA);
+    scanf("%f", &city.growB);
+
+    return city;
+}
+int recursion(struct data city, int qtd);
+void showResult(int x);
+
+int main(){
+    int testCases, qtd = 0;
+
+    scanf("%d", &testCases);
+    
+    struct data city;
+
+    while (testCases > 0)
+    {
+        city = getData();
+
+        showResult(recursion(city, qtd));
+
+        testCases--;
+    }
+    
+    return 0;
+}
+
+int recursion(struct data city, int qtd){ 
+
+    if(qtd > 100)
+        return qtd;
+
+    if(city.popA > city.popB)
+        return qtd;
+
+    city.popA += (city.popA * city.growA) / 100;
+    city.popB += (city.popB * city.growB) / 100;
+
+    return recursion(city, qtd + 1);
+}
+
+void showResult(int x){
+    
+    if(x > 100)
+        printf("Mais de 1 seculo.\n");
+
+    else
+        printf("%d anos.\n", x);
+}
