@@ -1,0 +1,28 @@
+#include <stdio.h>
+ 
+int main() {
+    int quantity = 0, value, testCases, i;
+    
+    scanf("%d", &testCases);
+
+    while (testCases--)
+    {
+        scanf("%d", &value);
+
+        for (i = 1; i < value; i++)
+        {
+            if(value % i == 0)
+                quantity += i;
+        }
+
+        if(quantity == value)
+            printf("%d eh perfeito\n", value);
+        
+        else
+            printf("%d nao eh perfeito\n", value);
+
+        quantity = 0;
+    }    
+
+    return 0;
+}
