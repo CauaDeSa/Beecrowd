@@ -1,0 +1,51 @@
+#include <stdio.h>
+#define MAXSIZE 12
+
+void fillMatrix(float matrix[][MAXSIZE]);
+float sum(float matrix[][MAXSIZE]);
+
+int main(){
+    float matrix[MAXSIZE][MAXSIZE];
+    char operation;
+
+    scanf("%c", &operation);
+
+    fillMatrix(matrix);
+
+    if(operation == 'M')
+        printf("%.1f\n", sum(matrix) / 66);
+    
+    else
+        printf("%.1f\n", sum(matrix));
+
+    return 0;
+}
+
+void fillMatrix(float matrix[][MAXSIZE]){
+    int i, j;
+
+    for (i = 0; i < MAXSIZE; i++)
+    {
+        for (j = 0; j < MAXSIZE; j++)
+        {
+            scanf("%f", &matrix[i][j]);
+        }
+    }
+}
+
+float sum(float matrix[][MAXSIZE]){
+    int i, j, k = 1;
+    float sum = 0;
+
+    for (i = 0; i < MAXSIZE; i++)
+    {
+       for (j = k; j < MAXSIZE; j++)
+       {
+            sum += matrix[i][j];
+       }
+
+       k++;       
+    }
+    
+    return sum;
+}
