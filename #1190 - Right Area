@@ -1,0 +1,67 @@
+#include <stdio.h>
+#define MAXSIZE 12
+#define CASES 30
+
+void fillMatrix(float matrix[][MAXSIZE]);
+float sum(float matrix[][MAXSIZE]);
+
+int main(){
+    float matrix[MAXSIZE][MAXSIZE];
+    char operation;
+
+    scanf("%c", &operation);
+
+    fillMatrix(matrix);
+
+    if(operation == 'M')
+        printf("%.1f\n", sum(matrix) / CASES);
+    
+    else
+        printf("%.1f\n", sum(matrix));
+
+    return 0;
+}
+
+void fillMatrix(float matrix[][MAXSIZE]){
+    int i, j;
+
+    for (i = 0; i < MAXSIZE; i++)
+    {
+        for (j = 0; j < MAXSIZE; j++)
+        {
+            scanf("%f", &matrix[i][j]);
+        }
+    }
+}
+
+float sum(float matrix[][MAXSIZE]){
+    int i, j, k;
+    float sum = 0;
+
+    k = 10;
+
+    for (i = 1; i < MAXSIZE / 2; i++)
+    {
+       for (j = 11; j > k && k > 5; j--)
+       {
+            sum += matrix[i][j];
+       }
+
+        k--;               
+    }   
+
+    k = 7;
+
+    for (i = 6; i < MAXSIZE - 1; i++)
+    {
+        for (j = k; j < MAXSIZE; j++)
+        {
+            sum += matrix[i][j];
+        }
+        
+        k++;
+    }
+    
+    
+    return sum;
+}
