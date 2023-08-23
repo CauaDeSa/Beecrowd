@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <string.h>
+
+struct data
+{
+    char carne[20];
+    int validade;
+};
+
+void selection_sort(struct data array[], int, int[]);
+void showResult(struct data array[], int, int []);
+
+int main() {
+    struct data array[10];
+    int indexAux[10], n, i;
+
+    while (scanf("%d", &n) != EOF)
+    {
+        for (i = 0; i < n; i++)
+        {
+            scanf("%s", array[i].carne);
+            scanf("%d", &array[i].validade);
+            indexAux[i] = i;
+        }
+        
+        selection_sort(array, n, indexAux);
+        showResult(array, n, indexAux);
+    }
+    
+    return 0;
+}
+
+void selection_sort(struct data array[], int length, int indexAux[]){
+	int i, j, low, aux;
+
+    for(i = 0; i < length; i++){
+		low = i;
+
+		for(j = i + 1; j < length; j++){
+
+			if(array[indexAux[j]].validade < array[indexAux[low]].validade)
+				low = j;
+		}
+
+		aux = indexAux[i];
+		indexAux[i] = indexAux[low];
+		indexAux[low] = aux;
+	}
+}
+
+void showResult(struct data array[], int length, int indexAux[]){
+    int i;
+
+    printf("%s", array[indexAux[0]].carne);
+
+    for (i = 1; i < length; i++)
+        printf(" %s", array[indexAux[i]].carne);
+
+    printf("\n");
+}
