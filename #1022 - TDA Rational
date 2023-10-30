@@ -1,146 +1,178 @@
 #include <stdio.h>
- 
-struct data
-{
-    int first_value[2], second_value[2], result[2];
+#include <stdlib.h>
+
+typedef struct number{
+    int numerador;
+    int denominador;
+}*Racional;
+
+typedef struct data{
+    Racional numeros[2];
     char operation;
-};
+}*Operacao;
 
-void getData(struct data values[], int rpt);
-void define(struct data values[], int rpt);
+Operacao initialize();
+Racional criarRacional(int numerador, int denominador);
+void defineOperation(Operacao data, char operation);
+void destruirRacional(Racional numero);
 
-void sum(struct data values[], int i);
-void subtraction(struct data values[], int i);
-void division(struct data values[], int i);
-void multiplication(struct data values[], int i);
+void define(Operacao data);
 
-void simplify(struct data values[], int i);
+void sum(Operacao data);
+void subtract(Operacao data);
+void divide(Operacao data);
+void multiply(Operacao data);
+
+void getResult(Operacao data);
+void simplify(Operacao data);
 
 int main() {
     int rpt;
+    Operacao data;
+
+    int numerador, denominador;
+    char operation, bar;
 
     scanf("%d", &rpt);    
 
-    struct data values[rpt];
+    data = initialize();
 
-    getData(values, rpt);
+    do
+    {
+        scanf("%d", &numerador);
+        scanf(" %c", &bar);
+        scanf("%d", &denominador);
 
-    define(values, rpt);
+        data->numeros[0] = criarRacional(numerador, denominador);
+
+        scanf(" %c", &operation);
+
+        defineOperation(data, operation);
+
+        scanf("%d", &numerador);
+        scanf(" %c", &bar);
+        scanf("%d", &denominador);
+
+        data->numeros[1] = criarRacional(numerador, denominador);
+
+        define(data);
+
+        destruirRacional(data->numeros[0]);
+        destruirRacional(data->numeros[1]);
+
+    } while (--rpt != 0);
     
     return 0;
 }
 
-void getData(struct data values[], int rpt){
-    int i;
-    char bar;
+Operacao initialize(){
+    Operacao data;
+    data = malloc(sizeof(struct data));
+    return data;
+}
 
-    for (i = 0; i < rpt; i++)
+Racional criarRacional(int numerador, int denominador){
+    Racional numeroRacional;
+
+    numeroRacional = malloc(sizeof(struct number));
+
+    if (numeroRacional != NULL)
     {
-        scanf("%d", &values[i].first_value[0]);
-        scanf(" %c", &bar);
-        scanf("%d", &values[i].first_value[1]);
-
-        scanf(" %c", &values[i].operation);
-
-        scanf("%d", &values[i].second_value[0]);
-        scanf(" %c", &bar);
-        scanf("%d", &values[i].second_value[1]);
+        numeroRacional->numerador = numerador;
+        numeroRacional->denominador = denominador;
     }
+
+    return numeroRacional;
 }
 
-void define(struct data values[], int rpt){
-    int i;
+void defineOperation(Operacao data, char operation){
+    data->operation = operation;
+}
 
-    for (i = 0; i < rpt; i++)
+void destruirRacional(Racional numero){
+    free(numero);
+    numero = NULL;
+}
+
+void define(Operacao data){
+    
+    switch (data->operation)
     {
-        switch (values[i].operation)
-        {
-        case '+':
+    case '+':
 
-            sum(values, i);
+        sum(data);
+        
+        break;
 
-            simplify(values, i);
-            
-            break;
+    case '-':
 
-        case '-':
+        subtract(data);
 
-            subtraction(values, i);
+        break;
 
-            simplify(values, i);
+    case '*':
 
-            break;
+        multiply(data);
 
-        case '*':
+        break;
 
-            multiplication(values, i);
+    case '/':
 
-            simplify(values, i);
+        divide(data);
 
-            break;
-
-        case '/':
-
-            division(values, i);
-
-            simplify(values, i);
-
-            break;
-        }
+        break;
     }
+
+    getResult(data);
+    
+    simplify(data);
 }
 
-void sum(struct data values[], int i){
+void sum(Operacao data){
 
-    values[i].result[0] = (values[i].first_value[0] * values[i].second_value[1]) + (values[i].first_value[1] * values[i].second_value[0]);
+    data->numeros[0]->numerador = (data->numeros[0]->numerador * data->numeros[1]->denominador) + (data->numeros[0]->denominador * data->numeros[1]->numerador);
 
-    values[i].result[1] = values[i].first_value[1] * values[i].second_value[1];
-
-    printf("%d/%d =", values[i].result[0], values[i].result[1]);
+    data->numeros[0]->denominador = data->numeros[0]->denominador * data->numeros[1]->denominador;
 }
 
-void subtraction(struct data values[], int i){
+void subtract(Operacao data){
 
-    values[i].result[0] = (values[i].first_value[0] * values[i].second_value[1]) - (values[i].first_value[1] * values[i].second_value[0]);
+    data->numeros[0]->numerador = (data->numeros[0]->numerador * data->numeros[1]->denominador) - (data->numeros[0]->denominador * data->numeros[1]->numerador);
 
-    values[i].result[1] = values[i].first_value[1] * values[i].second_value[1];
-
-    printf("%d/%d =", values[i].result[0], values[i].result[1]);
+    data->numeros[0]->denominador = data->numeros[0]->denominador * data->numeros[1]->denominador;
 }
 
-void division(struct data values[], int i){
+void divide(Operacao data){
 
-    values[i].result[0] = values[i].first_value[0] * values[i].second_value[1];
+    data->numeros[0]->numerador = data->numeros[0]->numerador* data->numeros[1]->denominador;
 
-    values[i].result[1] = values[i].second_value[0] * values[i].first_value[1];
-
-    printf("%d/%d =", values[i].result[0], values[i].result[1]);
+    data->numeros[0]->denominador = data->numeros[1]->numerador* data->numeros[0]->denominador;
 }
 
-void multiplication(struct data values[], int i){
+void multiply(Operacao data){
 
-    values[i].result[0] = values[i].first_value[0] * values[i].second_value[0];
+    data->numeros[0]->numerador = data->numeros[0]->numerador * data->numeros[1]->numerador;
 
-    values[i].result[1] = values[i].first_value[1] * values[i].second_value[1];
-
-    printf("%d/%d =", values[i].result[0], values[i].result[1]);
+    data->numeros[0]->denominador = data->numeros[0]->denominador * data->numeros[1]->denominador;
 }
 
-void simplify(struct data values[], int i){
+void getResult(Operacao data){
+    printf("%d/%d =", data->numeros[0]->numerador, data->numeros[0]->denominador);
+}
+
+void simplify(Operacao data){
     int bigger, minor, change, divisor = 0;
 
-    bigger = values[i].result[0];
-    minor = values[i].result[1];
+    bigger = data->numeros[0]->numerador;
+    minor = data->numeros[0]->denominador;
+
+    change = minor;
 
     if (minor > bigger)
     {
-        change = minor;
         minor = bigger;
         bigger = change;
     }
-    
-    else
-        change = minor;
 
     if (minor != 1)
         while (change != 1 && divisor == 0)
@@ -148,13 +180,15 @@ void simplify(struct data values[], int i){
             if (minor % change == 0){
                 if (bigger % change == 0)
                 {
-                    printf(" %d/%d\n", (values[i].result[0] / change), values[i].result[1] / change);
+                    data->numeros[0]->numerador = data->numeros[0]->numerador / change;
+                    data->numeros[0]->denominador = data->numeros[0]->denominador / change;
+
                     divisor++;
                 }
+            }
 
             change--;
         }
-    
-    if (minor == 1 || divisor == 0)
-        printf(" %d/%d\n", values[i].result[0], values[i].result[1]);
+
+    printf(" %d/%d\n", data->numeros[0]->numerador, data->numeros[0]->denominador);
 }
