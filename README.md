@@ -1,4 +1,4 @@
-<﻿div align = "center"> Resoluções de alguns exercícios do beecrowd 📜<﻿/div>
+##Resoluções de alguns exercícios do beecrowd 📜
 
 <div align = "center">
     <p>
