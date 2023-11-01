@@ -5,6 +5,7 @@
         O objetivo deste repositório é apenas compartilhar alguns exercícios resolvidos por mim, do site beecrowd.  
     </p>
 </div>
+<br>
 
  <h2> Linguagens utilizadas até o momento💻</h2> 
 
