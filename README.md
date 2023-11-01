@@ -2,13 +2,12 @@
 
 <div align="center">
     <p>
-    O objetivo deste projeto é apenas compartilhar as minhas resoluções de alguns exercícios do site beecrowd.  </p>
-    <a  href="https://www.beecrowd.com.br/judge/en/login"> <img  height="50em" src="icons/icon-beecrowd.webp" target="_blank"></a> 
+    O objetivo deste repositório é apenas compartilhar alguns exercícios resolvidos por mim, do site beecrowd.  </p>
+    <a  href="https://www.beecrowd.com.br/judge/en/login"> <img  height="50em" src="[icons/icon-beecrowd.webp](https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/w7dcihvaipthnr6qbv6z)"></a> 
 </div>
 
- <h2>Linguagens utilizadas 💻</h2> 
+ <h2>Linguagens utilizadas até o momento💻</h2> 
 
 <div align="center"> 
-    <p>Deixo aqui as linguagens que resolvi os exercícios. Obs. Agora nesse inicio do projeto temos mais exercícios com a Linguagem C, porém, ao passar do tempo pretendo postar com Python e outras linguagens. </p>
     <img alt="Linguagem C" src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white" />
 <div>
